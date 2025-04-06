@@ -1,0 +1,20 @@
+:root {
+  /* Paleta profesional */
+  --primary: #2E4053;      /* Azul oscuro principal */
+  --primary-dark: #1A2A3A;
+  --secondary: #3498DB;    /* Azul brillante */
+  --accent: #E74C3C;       /* Rojo para énfasis */
+  --accent-dark: #C0392B;
+  
+  /* Escala de grises */
+  --text: #333333;
+  --text-light: #7F8C8D;
+  --bg: #F8F9FA;          /* Fondo claro */
+  --card-bg: #FFFFFF;     /* Fondo tarjetas */
+  --border: #ECF0F1;      /* Bordes sutiles */
+  
+  /* Estados */
+  --success: #27AE60;
+  --warning: #F39C12;
+  --error: var(--accent);
+}
