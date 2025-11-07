@@ -91,6 +91,14 @@
             opacity: 0.9;
         }
         
+        .language-level {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
         nav {
             margin-top: 20px;
             display: flex;
@@ -133,6 +141,7 @@
         section:nth-child(2) { animation-delay: 0.4s; }
         section:nth-child(3) { animation-delay: 0.6s; }
         section:nth-child(4) { animation-delay: 0.8s; }
+        section:nth-child(5) { animation-delay: 1.0s; }
         
         section h2 {
             border-bottom: 3px solid var(--primary);
@@ -164,24 +173,77 @@
             left: -15px;
         }
         
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-category h3 i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 10px;
         }
         
         .skill-item {
-            background: #f0f7ff;
-            padding: 12px;
-            border-radius: 8px;
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+            font-size: 0.9em;
         }
         
         .skill-item:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .certification-item {
+            background: #f0f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .certification-item h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .certification-item .issuer {
+            color: var(--gray);
+            font-size: 0.9em;
+            margin-bottom: 8px;
         }
         
         .project-card {
@@ -455,13 +517,17 @@
                 <img src="tu-foto.jpg" alt="Emanuel López Reyes" class="profile-img">
                 <div>
                     <h1>Emanuel López Reyes</h1>
-                    <p class="tagline">Desarrollador Web & Especialista en Marketing Digital</p>
+                    <p class="tagline">Desarrollador Full Stack & Especialista en Marketing Digital</p>
+                    <div class="language-level">
+                        <i class="fas fa-language"></i> Inglés: Nivel B1 | Español: Nativo
+                    </div>
                 </div>
             </div>
             
             <nav>
                 <a href="#about">Sobre mí</a>
                 <a href="#skills">Habilidades</a>
+                <a href="#certifications">Certificaciones</a>
                 <a href="#services">Servicios</a>
                 <a href="#projects">Proyectos</a>
                 <a href="#calculator">Cotizador</a>
@@ -473,7 +539,7 @@
         <section id="about">
             <h2><i class="fas fa-user"></i> Sobre mí</h2>
             <p>
-                Fundador de EK Group, agencia digital multidisciplinaria. Especializado en desarrollo web con WordPress y Divi, integraciones de pagos, automatizaciones, clones digitales e inteligencia artificial. 
+                Fundador de EK Group, agencia digital multidisciplinaria. Especializado en desarrollo web full stack con WordPress, React y tecnologías modernas. Experto en integraciones de pagos, automatizaciones, clones digitales e inteligencia artificial. 
             </p>
             <p>
                 Lidero un equipo de estudiantes universitarios de Ingeniería Informática, Ciencias de la Computación y Periodismo. Todos dominamos inglés nivel B1.
@@ -482,24 +548,94 @@
 
         <section id="skills">
             <h2><i class="fas fa-cogs"></i> Habilidades Técnicas</h2>
-            <div class="skills-grid">
-                <div class="skill-item">WordPress & Divi</div>
-                <div class="skill-item">WooCommerce</div>
-                <div class="skill-item">Integraciones de Pagos</div>
-                <div class="skill-item">SEO Técnico</div>
-                <div class="skill-item">Automatizaciones (APIs)</div>
-                <div class="skill-item">Google Sheets & Power Automate</div>
-                <div class="skill-item">Clones Digitales & Asistentes IA</div>
-                <div class="skill-item">Gestión de Redes Sociales</div>
-                <div class="skill-item">Redacción Persuasiva</div>
-                <div class="skill-item">Diseño de Flyers</div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fab fa-js"></i> Frontend & JavaScript</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">HTML5</div>
+                        <div class="skill-item">CSS3</div>
+                        <div class="skill-item">JavaScript</div>
+                        <div class="skill-item">TypeScript</div>
+                        <div class="skill-item">React</div>
+                        <div class="skill-item">jQuery</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fab fa-wordpress"></i> WordPress & CMS</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">WordPress</div>
+                        <div class="skill-item">Divi Builder</div>
+                        <div class="skill-item">WooCommerce</div>
+                        <div class="skill-item">Plugins</div>
+                        <div class="skill-item">Custom Themes</div>
+                        <div class="skill-item">SEO Técnico</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-palette"></i> Diseño & Multimedia</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">Adobe Photoshop</div>
+                        <div class="skill-item">DaVinci Resolve</div>
+                        <div class="skill-item">Edición de Video</div>
+                        <div class="skill-item">Diseño Gráfico</div>
+                        <div class="skill-item">UX/UI</div>
+                        <div class="skill-item">Flyers & Banners</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Desarrollo & Herramientas</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">Git & GitHub</div>
+                        <div class="skill-item">APIs REST</div>
+                        <div class="skill-item">Google Sheets</div>
+                        <div class="skill-item">Power Automate</div>
+                        <div class="skill-item">Hostinguer</div>
+                        <div class="skill-item">cPanel</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Habilidades Blandas</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">Excel Avanzado</div>
+                        <div class="skill-item">Ofimática</div>
+                        <div class="skill-item">Gestión de Proyectos</div>
+                        <div class="skill-item">Liderazgo</div>
+                        <div class="skill-item">Comunicación</div>
+                        <div class="skill-item">Inglés B1</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2><i class="fas fa-award"></i> Certificaciones</h2>
+            <div class="certifications">
+                <div class="certification-item">
+                    <h4>Google Cybersecurity Professional Certificate</h4>
+                    <div class="issuer">Google - Versión 2</div>
+                    <p>Fundamentos de ciberseguridad, protección de redes y sistemas.</p>
+                </div>
+                <div class="certification-item">
+                    <h4>Desarrollo Web Full Stack</h4>
+                    <div class="issuer">Autodidacta & Proyectos Prácticos</div>
+                    <p>Experiencia demostrable en múltiples proyectos reales.</p>
+                </div>
+                <div class="certification-item">
+                    <h4>WordPress & E-commerce Specialist</h4>
+                    <div class="issuer">Experiencia Práctica</div>
+                    <p>Desarrollo de sitios web y tiendas online con WooCommerce.</p>
+                </div>
             </div>
         </section>
 
         <section id="services">
             <h2><i class="fas fa-concierge-bell"></i> Servicios</h2>
             <ul>
-                <li>Diseño y desarrollo web profesional con WordPress y Divi</li>
+                <li>Diseño y desarrollo web profesional con WordPress y tecnologías modernas</li>
                 <li>Tiendas online con WooCommerce y integración de pasarelas de pago</li>
                 <li>Instalación y configuración de plugins específicos</li>
                 <li>SEO técnico y optimización de velocidad de sitios web</li>
@@ -507,6 +643,8 @@
                 <li>Creación de clones digitales y asistentes de inteligencia artificial</li>
                 <li>Gestión de redes sociales y campañas publicitarias</li>
                 <li>Redacción persuasiva y diseño de materiales promocionales</li>
+                <li>Edición de video profesional con DaVinci Resolve</li>
+                <li>Diseño gráfico con Adobe Photoshop</li>
             </ul>
         </section>
 
@@ -648,7 +786,7 @@
     </main>
 
     <footer>
-        &copy; 2025 Emanuel López Reyes - Desarrollador Web & Marketing Digital
+        &copy; 2025 Emanuel López Reyes - Desarrollador Full Stack & Marketing Digital
     </footer>
 
     <script>
