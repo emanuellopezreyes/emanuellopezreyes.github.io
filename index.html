@@ -1,154 +1,871 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Emanuel López Reyes - Perfil Profesional</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background: #004080;
-      color: white;
-      padding: 20px 10px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.4em;
-    }
-    nav {
-      margin-top: 10px;
-    }
-    nav a {
-      color: #a0c8ff;
-      text-decoration: none;
-      margin: 0 12px;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      max-width: 900px;
-      margin: 30px auto;
-      background: white;
-      padding: 20px 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-    section {
-      margin-bottom: 30px;
-    }
-    section h2 {
-      border-bottom: 3px solid #004080;
-      padding-bottom: 6px;
-      margin-bottom: 15px;
-      color: #004080;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    .total {
-      font-size: 1.3em;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    .whatsapp-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 20px;
-      background-color: #25D366;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    footer {
-      text-align: center;
-      padding: 15px 10px;
-      background: #004080;
-      color: white;
-      font-size: 0.9em;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emanuel López Reyes - Desarrollador Web & Marketing Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #004080;
+            --secondary: #25D366;
+            --accent: #FF6B00;
+            --light: #f5f5f5;
+            --dark: #333;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #00264d);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-bottom: 15px;
+            animation: popIn 0.8s ease-out;
+        }
+        
+        .profile-img-placeholder {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid white;
+            background: #a0c8ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 15px;
+            animation: popIn 0.8s ease-out;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2.4em;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .tagline {
+            font-size: 1.2em;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        nav {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.15);
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+        
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        section {
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        section:nth-child(1) { animation-delay: 0.2s; }
+        section:nth-child(2) { animation-delay: 0.4s; }
+        section:nth-child(3) { animation-delay: 0.6s; }
+        section:nth-child(4) { animation-delay: 0.8s; }
+        
+        section h2 {
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        section h2 i {
+            margin-right: 10px;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 10px;
+        }
+        
+        li::before {
+            content: "▸";
+            color: var(--primary);
+            position: absolute;
+            left: -15px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .skill-item {
+            background: #f0f7ff;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        
+        .project-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateX(5px);
+        }
+        
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Estilos para la calculadora */
+        .calculator {
+            background: #f0f7ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .question-group {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #d0e0f0;
+        }
+        
+        .question-group h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        
+        .option-card {
+            background: white;
+            border: 2px solid #d0e0f0;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .option-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .option-card.selected {
+            border-color: var(--accent);
+            background: #fff5e6;
+        }
+        
+        .option-card h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .option-card .price {
+            font-weight: bold;
+            color: var(--accent);
+            margin-top: 5px;
+        }
+        
+        .option-card .description {
+            font-size: 0.9em;
+            color: var(--gray);
+            margin-top: 8px;
+        }
+        
+        .time-options {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
+        .time-option {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .calculator button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            width: 100%;
+            font-size: 1.1em;
+        }
+        
+        .calculator button:hover {
+            background: #00264d;
+            transform: translateY(-2px);
+        }
+        
+        .total {
+            font-size: 1.5em;
+            margin-top: 20px;
+            font-weight: bold;
+            color: var(--primary);
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+        
+        .breakdown {
+            margin-top: 15px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9em;
+        }
+        
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        
+        .breakdown-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .breakdown-total {
+            font-weight: bold;
+            border-top: 2px solid var(--primary);
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 25px;
+            padding: 15px 25px;
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            width: 100%;
+            text-align: center;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #20b858;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-btn i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px 10px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.9em;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            header {
+                background: var(--primary) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            main {
+                box-shadow: none;
+                margin: 0;
+                padding: 20px;
+            }
+            
+            .whatsapp-btn {
+                display: none;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .calculator button {
+                display: none;
+            }
+            
+            .total {
+                animation: none;
+            }
+            
+            footer {
+                position: relative;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            70% {
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Emanuel López Reyes</h1>
-    <nav>
-      <a href="#about">Sobre mí</a>
-      <a href="#services">Servicios</a>
-      <a href="#projects">Proyectos</a>
-      <a href="#calculator">Cotizador</a>
-    </nav>
-  </header>
+    <header>
+        <div class="header-content">
+            <div class="profile-container">
+                <img src="tu-foto.jpg" alt="Emanuel López Reyes" class="profile-img">
+                <div>
+                    <h1>Emanuel López Reyes</h1>
+                    <p class="tagline">Desarrollador Web & Especialista en Marketing Digital</p>
+                </div>
+            </div>
+            
+            <nav>
+                <a href="#about">Sobre mí</a>
+                <a href="#skills">Habilidades</a>
+                <a href="#services">Servicios</a>
+                <a href="#projects">Proyectos</a>
+                <a href="#calculator">Cotizador</a>
+            </nav>
+        </div>
+    </header>
 
-  <main>
-    <section id="about">
-      <h2>Sobre mí</h2>
-      <p>
-        Fundador de EK Group, agencia digital multidisciplinaria. Desarrollo sitios web con WordPress y Divi, domino integraciones de pagos, automatizaciones, clones digitales e inteligencia artificial. Trabajo con Hostinguer y otros proveedores. Lidero un equipo de estudiantes universitarios de Ingeniería Informática, Ciencias de la Computación y Periodismo. Todos dominamos inglés nivel B1.
-      </p>
-    </section>
+    <main>
+        <section id="about">
+            <h2><i class="fas fa-user"></i> Sobre mí</h2>
+            <p>
+                Fundador de EK Group, agencia digital multidisciplinaria. Especializado en desarrollo web con WordPress y Divi, integraciones de pagos, automatizaciones, clones digitales e inteligencia artificial. 
+            </p>
+            <p>
+                Lidero un equipo de estudiantes universitarios de Ingeniería Informática, Ciencias de la Computación y Periodismo. Todos dominamos inglés nivel B1.
+            </p>
+        </section>
 
-    <section id="services">
-      <h2>Servicios</h2>
-      <ul>
-        <li>Diseño y desarrollo web (WordPress, Divi)</li>
-        <li>Tiendas online con WooCommerce</li>
-        <li>Integración de pagos y plugins</li>
-        <li>SEO técnico y optimización de velocidad</li>
-        <li>Automatización con APIs, Google Sheets y Power Automate</li>
-        <li>Creación de clones digitales y asistentes IA</li>
-        <li>Gestión de redes sociales y campañas publicitarias</li>
-        <li>Redacción persuasiva y diseño de flyers</li>
-      </ul>
-    </section>
+        <section id="skills">
+            <h2><i class="fas fa-cogs"></i> Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-item">WordPress & Divi</div>
+                <div class="skill-item">WooCommerce</div>
+                <div class="skill-item">Integraciones de Pagos</div>
+                <div class="skill-item">SEO Técnico</div>
+                <div class="skill-item">Automatizaciones (APIs)</div>
+                <div class="skill-item">Google Sheets & Power Automate</div>
+                <div class="skill-item">Clones Digitales & Asistentes IA</div>
+                <div class="skill-item">Gestión de Redes Sociales</div>
+                <div class="skill-item">Redacción Persuasiva</div>
+                <div class="skill-item">Diseño de Flyers</div>
+            </div>
+        </section>
 
-    <section id="projects">
-      <h2>Proyectos destacados</h2>
-      <ul>
-        <li><strong>EatMontuno.com</strong> – Desarrollo del frontend y SEO</li>
-        <li><strong>ImperialSeedsUSA.com</strong> – Desarrollo completo del sitio web</li>
-      </ul>
-    </section>
+        <section id="services">
+            <h2><i class="fas fa-concierge-bell"></i> Servicios</h2>
+            <ul>
+                <li>Diseño y desarrollo web profesional con WordPress y Divi</li>
+                <li>Tiendas online con WooCommerce y integración de pasarelas de pago</li>
+                <li>Instalación y configuración de plugins específicos</li>
+                <li>SEO técnico y optimización de velocidad de sitios web</li>
+                <li>Automatización de procesos con APIs, Google Sheets y Power Automate</li>
+                <li>Creación de clones digitales y asistentes de inteligencia artificial</li>
+                <li>Gestión de redes sociales y campañas publicitarias</li>
+                <li>Redacción persuasiva y diseño de materiales promocionales</li>
+            </ul>
+        </section>
 
-    <section id="calculator">
-      <h2>Calculadora de precios</h2>
-      <label>Secciones de la web ($20 c/u): <input type="number" id="secciones" value="5"></label>
-      <label>Plugins a instalar ($10 c/u): <input type="number" id="plugins" value="5"></label>
-      <label>Páginas con redacción ($5 c/u): <input type="number" id="redaccion" value="3"></label>
-      <label><input type="checkbox" id="woocommerce"> Incluir tienda WooCommerce (+$100)</label>
-      <label><input type="checkbox" id="seo"> Optimización SEO (+$30)</label>
-      <button onclick="calcular()">Calcular total</button>
-      <div class="total" id="resultado">Total: $0 USD</div>
-      <a class="whatsapp-btn" href="https://wa.me/+5363954799" target="_blank">Solicitar servicios por WhatsApp</a>
-    </section>
-  </main>
+        <section id="projects">
+            <h2><i class="fas fa-project-diagram"></i> Proyectos Destacados</h2>
+            <div class="project-card">
+                <h3>EatMontuno.com</h3>
+                <p>Desarrollo completo del frontend, implementación de SEO y optimización de rendimiento.</p>
+            </div>
+            <div class="project-card">
+                <h3>ImperialSeedsUSA.com</h3>
+                <p>Desarrollo integral del sitio web, incluyendo diseño, funcionalidades y estrategia de contenido.</p>
+            </div>
+        </section>
 
-  <footer>
-    &copy; 2025 Emanuel López Reyes
-  </footer>
+        <section id="calculator">
+            <h2><i class="fas fa-calculator"></i> Calculadora de Presupuesto</h2>
+            <p>Responde estas preguntas para obtener un presupuesto personalizado:</p>
+            
+            <div class="calculator">
+                <div class="question-group">
+                    <h3>1. ¿Qué tipo de sitio web necesitas?</h3>
+                    <div class="options-grid">
+                        <div class="option-card" data-value="basico" onclick="selectOption(this, 'tipo')">
+                            <h4>Sitio Básico</h4>
+                            <div class="price">$125 USD</div>
+                            <div class="description">5 secciones, diseño estándar</div>
+                        </div>
+                        <div class="option-card" data-value="avanzado" onclick="selectOption(this, 'tipo')">
+                            <h4>Sitio Avanzado</h4>
+                            <div class="price">$200 USD</div>
+                            <div class="description">8 secciones, diseño personalizado</div>
+                        </div>
+                        <div class="option-card" data-value="tienda" onclick="selectOption(this, 'tipo')">
+                            <h4>Tienda Online</h4>
+                            <div class="price">$300 USD</div>
+                            <div class="description">WooCommerce, 8 secciones, pasarelas de pago</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question-group">
+                    <h3>2. ¿Quién proporciona el contenido textual?</h3>
+                    <div class="options-grid">
+                        <div class="option-card" data-value="cliente" onclick="selectOption(this, 'contenido')">
+                            <h4>El cliente</h4>
+                            <div class="price">+$0 USD</div>
+                            <div class="description">Usted proporciona todos los textos</div>
+                        </div>
+                        <div class="option-card" data-value="parcial" onclick="selectOption(this, 'contenido')">
+                            <h4>Parcialmente nosotros</h4>
+                            <div class="price">+$25 USD</div>
+                            <div class="description">Revisión y optimización de textos</div>
+                        </div>
+                        <div class="option-card" data-value="completo" onclick="selectOption(this, 'contenido')">
+                            <h4>Redacción completa</h4>
+                            <div class="price">+$40 USD</div>
+                            <div class="description">Creamos todo el contenido desde cero</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question-group">
+                    <h3>3. ¿Quién proporciona las imágenes?</h3>
+                    <div class="options-grid">
+                        <div class="option-card" data-value="cliente" onclick="selectOption(this, 'imagenes')">
+                            <h4>El cliente</h4>
+                            <div class="price">+$0 USD</div>
+                            <div class="description">Usted proporciona todas las imágenes</div>
+                        </div>
+                        <div class="option-card" data-value="parcial" onclick="selectOption(this, 'imagenes')">
+                            <h4>Parcialmente nosotros</h4>
+                            <div class="price">+$20 USD</div>
+                            <div class="description">Buscamos algunas imágenes de stock</div>
+                        </div>
+                        <div class="option-card" data-value="completo" onclick="selectOption(this, 'imagenes')">
+                            <h4>Búsqueda completa</h4>
+                            <div class="price">+$40 USD</div>
+                            <div class="description">Encontramos y editamos todas las imágenes</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question-group">
+                    <h3>4. ¿Necesitas optimización SEO?</h3>
+                    <div class="options-grid">
+                        <div class="option-card" data-value="basico" onclick="selectOption(this, 'seo')">
+                            <h4>Básico</h4>
+                            <div class="price">+$30 USD</div>
+                            <div class="description">Configuración esencial de SEO</div>
+                        </div>
+                        <div class="option-card" data-value="avanzado" onclick="selectOption(this, 'seo')">
+                            <h4>Avanzado</h4>
+                            <div class="price">+$60 USD</div>
+                            <div class="description">SEO completo + Google Analytics</div>
+                        </div>
+                        <div class="option-card" data-value="ninguno" onclick="selectOption(this, 'seo')">
+                            <h4>No necesario</h4>
+                            <div class="price">+$0 USD</div>
+                            <div class="description">Sin optimización SEO</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question-group">
+                    <h3>5. ¿En cuánto tiempo necesitas el proyecto?</h3>
+                    <div class="time-options">
+                        <div class="option-card time-option" data-value="5" onclick="selectOption(this, 'tiempo')">
+                            <h4>5 días</h4>
+                            <div class="price">+100%</div>
+                            <div class="description">Entrega urgente</div>
+                        </div>
+                        <div class="option-card time-option" data-value="10" onclick="selectOption(this, 'tiempo')">
+                            <h4>10 días</h4>
+                            <div class="price">+50%</div>
+                            <div class="description">Entrega rápida</div>
+                        </div>
+                        <div class="option-card time-option" data-value="15" onclick="selectOption(this, 'tiempo')">
+                            <h4>15 días</h4>
+                            <div class="price">+0%</div>
+                            <div class="description">Tiempo estándar</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="calcularPresupuesto()">Calcular Presupuesto</button>
+                
+                <div class="total" id="resultado">Total: $0 USD</div>
+                
+                <div class="breakdown" id="desglose" style="display: none;">
+                    <!-- El desglose se generará dinámicamente -->
+                </div>
+                
+                <a class="whatsapp-btn" href="https://wa.me/+5363954799" target="_blank" id="whatsappLink">
+                    <i class="fab fa-whatsapp"></i> Solicitar este presupuesto por WhatsApp
+                </a>
+            </div>
+        </section>
+    </main>
 
-  <script>
-    function calcular() {
-      const secciones = parseInt(document.getElementById('secciones').value) * 20;
-      const plugins = parseInt(document.getElementById('plugins').value) * 10;
-      const redaccion = parseInt(document.getElementById('redaccion').value) * 5;
-      const woocommerce = document.getElementById('woocommerce').checked ? 100 : 0;
-      const seo = document.getElementById('seo').checked ? 30 : 0;
-      const total = secciones + plugins + redaccion + woocommerce + seo;
-      document.getElementById('resultado').innerText = `Total: $${total} USD`;
-    }
-  </script>
+    <footer>
+        &copy; 2025 Emanuel López Reyes - Desarrollador Web & Marketing Digital
+    </footer>
+
+    <script>
+        // Objeto para almacenar las selecciones
+        const selecciones = {
+            tipo: null,
+            contenido: null,
+            imagenes: null,
+            seo: null,
+            tiempo: null
+        };
+        
+        // Precios base por tipo de sitio
+        const preciosBase = {
+            basico: 125,    // 5 secciones × $25
+            avanzado: 200,  // 8 secciones × $25
+            tienda: 300     // 8 secciones × $25 + $100 por WooCommerce
+        };
+        
+        // Precios adicionales por servicios
+        const preciosAdicionales = {
+            contenido: {
+                cliente: 0,
+                parcial: 25,
+                completo: 40
+            },
+            imagenes: {
+                cliente: 0,
+                parcial: 20,
+                completo: 40
+            },
+            seo: {
+                ninguno: 0,
+                basico: 30,
+                avanzado: 60
+            }
+        };
+        
+        // Multiplicadores por tiempo de entrega
+        const multiplicadoresTiempo = {
+            5: 2.0,   // +100%
+            10: 1.5,  // +50%
+            15: 1.0   // +0%
+        };
+        
+        // Función para seleccionar una opción
+        function selectOption(elemento, categoria) {
+            // Deseleccionar todas las opciones de la misma categoría
+            const opciones = elemento.parentElement.querySelectorAll('.option-card');
+            opciones.forEach(opcion => opcion.classList.remove('selected'));
+            
+            // Seleccionar la opción clickeada
+            elemento.classList.add('selected');
+            
+            // Guardar la selección
+            selecciones[categoria] = elemento.getAttribute('data-value');
+            
+            // Calcular automáticamente si todas las categorías están seleccionadas
+            const todasSeleccionadas = Object.values(selecciones).every(valor => valor !== null);
+            if (todasSeleccionadas) {
+                calcularPresupuesto();
+            }
+        }
+        
+        // Función para calcular el presupuesto
+        function calcularPresupuesto() {
+            // Verificar que todas las categorías estén seleccionadas
+            const todasSeleccionadas = Object.values(selecciones).every(valor => valor !== null);
+            if (!todasSeleccionadas) {
+                alert('Por favor, responde todas las preguntas para calcular tu presupuesto.');
+                return;
+            }
+            
+            // Calcular precio base
+            let precioBase = preciosBase[selecciones.tipo];
+            
+            // Calcular adicionales
+            const adicionalContenido = preciosAdicionales.contenido[selecciones.contenido];
+            const adicionalImagenes = preciosAdicionales.imagenes[selecciones.imagenes];
+            const adicionalSeo = preciosAdicionales.seo[selecciones.seo];
+            
+            // Calcular subtotal sin tiempo
+            const subtotal = precioBase + adicionalContenido + adicionalImagenes + adicionalSeo;
+            
+            // Aplicar multiplicador por tiempo
+            const multiplicador = multiplicadoresTiempo[selecciones.tiempo];
+            const total = Math.round(subtotal * multiplicador);
+            
+            // Mostrar resultado
+            document.getElementById('resultado').innerText = `Total: $${total} USD`;
+            
+            // Generar desglose
+            generarDesglose(precioBase, adicionalContenido, adicionalImagenes, adicionalSeo, multiplicador, total);
+            
+            // Actualizar enlace de WhatsApp
+            actualizarEnlaceWhatsApp(total);
+        }
+        
+        // Función para generar el desglose del presupuesto
+        function generarDesglose(base, contenido, imagenes, seo, multiplicador, total) {
+            const desglose = document.getElementById('desglose');
+            desglose.style.display = 'block';
+            
+            let html = '<h4>Desglose del presupuesto:</h4>';
+            
+            // Determinar nombre del tipo de sitio
+            let nombreTipo = '';
+            switch(selecciones.tipo) {
+                case 'basico': nombreTipo = 'Sitio Básico (5 secciones × $25)'; break;
+                case 'avanzado': nombreTipo = 'Sitio Avanzado (8 secciones × $25)'; break;
+                case 'tienda': nombreTipo = 'Tienda Online (8 secciones × $25 + $100 WooCommerce)'; break;
+            }
+            
+            html += `
+                <div class="breakdown-item">
+                    <span>${nombreTipo}</span>
+                    <span>$${base} USD</span>
+                </div>
+            `;
+            
+            // Contenido textual
+            let nombreContenido = '';
+            switch(selecciones.contenido) {
+                case 'cliente': nombreContenido = 'Contenido proporcionado por el cliente'; break;
+                case 'parcial': nombreContenido = 'Revisión y optimización de textos'; break;
+                case 'completo': nombreContenido = 'Redacción completa de contenidos'; break;
+            }
+            
+            if (contenido > 0) {
+                html += `
+                    <div class="breakdown-item">
+                        <span>${nombreContenido}</span>
+                        <span>+$${contenido} USD</span>
+                    </div>
+                `;
+            }
+            
+            // Imágenes
+            let nombreImagenes = '';
+            switch(selecciones.imagenes) {
+                case 'cliente': nombreImagenes = 'Imágenes proporcionadas por el cliente'; break;
+                case 'parcial': nombreImagenes = 'Búsqueda parcial de imágenes'; break;
+                case 'completo': nombreImagenes = 'Búsqueda completa de imágenes'; break;
+            }
+            
+            if (imagenes > 0) {
+                html += `
+                    <div class="breakdown-item">
+                        <span>${nombreImagenes}</span>
+                        <span>+$${imagenes} USD</span>
+                    </div>
+                `;
+            }
+            
+            // SEO
+            let nombreSeo = '';
+            switch(selecciones.seo) {
+                case 'ninguno': nombreSeo = 'Sin optimización SEO'; break;
+                case 'basico': nombreSeo = 'SEO básico'; break;
+                case 'avanzado': nombreSeo = 'SEO avanzado'; break;
+            }
+            
+            if (seo > 0) {
+                html += `
+                    <div class="breakdown-item">
+                        <span>${nombreSeo}</span>
+                        <span>+$${seo} USD</span>
+                    </div>
+                `;
+            }
+            
+            // Tiempo de entrega
+            let recargoTiempo = '';
+            let porcentajeRecargo = '';
+            switch(selecciones.tiempo) {
+                case '5': 
+                    recargoTiempo = 'Entrega en 5 días (urgente)';
+                    porcentajeRecargo = '+100%';
+                    break;
+                case '10': 
+                    recargoTiempo = 'Entrega en 10 días (rápida)';
+                    porcentajeRecargo = '+50%';
+                    break;
+                case '15': 
+                    recargoTiempo = 'Entrega en 15 días (estándar)';
+                    porcentajeRecargo = '+0%';
+                    break;
+            }
+            
+            const subtotal = base + contenido + imagenes + seo;
+            const recargo = total - subtotal;
+            
+            if (recargo > 0) {
+                html += `
+                    <div class="breakdown-item">
+                        <span>${recargoTiempo}</span>
+                        <span>+$${recargo} USD</span>
+                    </div>
+                `;
+            }
+            
+            html += `
+                <div class="breakdown-item breakdown-total">
+                    <span>TOTAL</span>
+                    <span>$${total} USD</span>
+                </div>
+            `;
+            
+            desglose.innerHTML = html;
+        }
+        
+        // Función para actualizar el enlace de WhatsApp con el presupuesto
+        function actualizarEnlaceWhatsApp(total) {
+            const mensaje = `Hola Emanuel, estoy interesado en el presupuesto de $${total} USD para mi sitio web. ¿Podrías proporcionarme más información?`;
+            const mensajeCodificado = encodeURIComponent(mensaje);
+            document.getElementById('whatsappLink').href = `https://wa.me/+5363954799?text=${mensajeCodificado}`;
+        }
+    </script>
 </body>
 </html>
