@@ -54,6 +54,21 @@
     ul {
       padding-left: 20px;
     }
+    .total {
+      font-size: 1.3em;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
     footer {
       text-align: center;
       padding: 15px 10px;
@@ -64,13 +79,6 @@
       width: 100%;
       bottom: 0;
     }
-    .certificate {
-      background: #e1f0ff;
-      border-left: 5px solid #004080;
-      padding: 8px 15px;
-      margin-bottom: 10px;
-      border-radius: 3px;
-    }
   </style>
 </head>
 <body>
@@ -78,10 +86,9 @@
     <h1>Emanuel López Reyes</h1>
     <nav>
       <a href="#about">Sobre mí</a>
-      <a href="#education">Educación</a>
-      <a href="#experience">Experiencia</a>
-      <a href="#skills">Habilidades</a>
-      <a href="#certifications">Certificaciones</a>
+      <a href="#services">Servicios</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#calculator">Cotizador</a>
     </nav>
   </header>
 
@@ -89,55 +96,59 @@
     <section id="about">
       <h2>Sobre mí</h2>
       <p>
-        Soy estudiante de Licenciatura en Contabilidad y Finanzas, con pasión
-        por la tecnología, programación y ciberseguridad. Nací el 10 de enero de 2025 en Cuba,
-        y combino mis conocimientos técnicos con habilidades en gestión y finanzas.
+        Fundador de EK Group, agencia digital multidisciplinaria. Desarrollo sitios web con WordPress y Divi, domino integraciones de pagos, automatizaciones, clones digitales e inteligencia artificial. Trabajo con Hostinguer y otros proveedores. Lidero un equipo de estudiantes universitarios de Ingeniería Informática, Ciencias de la Computación y Periodismo. Todos dominamos inglés nivel B1.
       </p>
     </section>
 
-    <section id="education">
-      <h2>Educación</h2>
+    <section id="services">
+      <h2>Servicios</h2>
       <ul>
-        <li>Graduado de Bachiller en IPVCE Eusebio Olivera, Sancti-Spíritus.</li>
-        <li>Medalla de Oro nacional en Matemáticas (8vo grado).</li>
-        <li>Licenciatura en Contabilidad y Finanzas (en curso).</li>
-        <li>Certificaciones en Filosofía, Economía Empresarial y Matemáticas Superiores - Universidad José Martí (UNISS).</li>
+        <li>Diseño y desarrollo web (WordPress, Divi)</li>
+        <li>Tiendas online con WooCommerce</li>
+        <li>Integración de pagos y plugins</li>
+        <li>SEO técnico y optimización de velocidad</li>
+        <li>Automatización con APIs, Google Sheets y Power Automate</li>
+        <li>Creación de clones digitales y asistentes IA</li>
+        <li>Gestión de redes sociales y campañas publicitarias</li>
+        <li>Redacción persuasiva y diseño de flyers</li>
       </ul>
     </section>
 
-    <section id="experience">
-      <h2>Experiencia</h2>
+    <section id="projects">
+      <h2>Proyectos destacados</h2>
       <ul>
-        <li>Informático en el Consejo Provincial de las Artes Escénicas, Sancti-Spíritus.</li>
-        <li>Administrador de Red del Gobierno.</li>
+        <li><strong>EatMontuno.com</strong> – Desarrollo del frontend y SEO</li>
+        <li><strong>ImperialSeedsUSA.com</strong> – Desarrollo completo del sitio web</li>
       </ul>
     </section>
 
-    <section id="skills">
-      <h2>Habilidades</h2>
-      <ul>
-        <li>Programación Web: HTML, CSS, JavaScript, TypeScript.</li>
-        <li>Ciberseguridad (certificación Google v2).</li>
-        <li>Marketing digital y edición de video.</li>
-        <li>Dominio avanzado de IA y herramientas ofimáticas (Excel, PowerPoint, Word).</li>
-        <li>Uso de Linux y reparación de hardware y software de PCs.</li>
-        <li>Inglés nivel A2.</li>
-      </ul>
-    </section>
-
-    <section id="certifications">
-      <h2>Certificaciones</h2>
-      <div class="certificate">Ciberseguridad - Google v2</div>
-      <div class="certificate">Ajedrez (Certificado)</div>
-      <div class="certificate">Informática (Universidad José Martí)</div>
-      <div class="certificate">Filosofía (Universidad José Martí)</div>
-      <div class="certificate">Economía Empresarial (Universidad José Martí)</div>
-      <div class="certificate">Matemáticas Superiores (Universidad José Martí)</div>
+    <section id="calculator">
+      <h2>Calculadora de precios</h2>
+      <label>Secciones de la web ($20 c/u): <input type="number" id="secciones" value="5"></label>
+      <label>Plugins a instalar ($10 c/u): <input type="number" id="plugins" value="5"></label>
+      <label>Páginas con redacción ($5 c/u): <input type="number" id="redaccion" value="3"></label>
+      <label><input type="checkbox" id="woocommerce"> Incluir tienda WooCommerce (+$100)</label>
+      <label><input type="checkbox" id="seo"> Optimización SEO (+$30)</label>
+      <button onclick="calcular()">Calcular total</button>
+      <div class="total" id="resultado">Total: $0 USD</div>
+      <a class="whatsapp-btn" href="https://wa.me/+5363954799" target="_blank">Solicitar servicios por WhatsApp</a>
     </section>
   </main>
 
   <footer>
     &copy; 2025 Emanuel López Reyes
   </footer>
+
+  <script>
+    function calcular() {
+      const secciones = parseInt(document.getElementById('secciones').value) * 20;
+      const plugins = parseInt(document.getElementById('plugins').value) * 10;
+      const redaccion = parseInt(document.getElementById('redaccion').value) * 5;
+      const woocommerce = document.getElementById('woocommerce').checked ? 100 : 0;
+      const seo = document.getElementById('seo').checked ? 30 : 0;
+      const total = secciones + plugins + redaccion + woocommerce + seo;
+      document.getElementById('resultado').innerText = `Total: $${total} USD`;
+    }
+  </script>
 </body>
 </html>
